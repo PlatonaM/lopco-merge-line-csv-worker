@@ -29,6 +29,7 @@ data_cache_path = "/data_cache"
 output_file = uuid.uuid4().hex
 
 
+print("merging lines ...")
 with open("{}/{}".format(data_cache_path, input_file), "r") as in_file:
     with open("{}/{}".format(data_cache_path, output_file), "w") as out_file:
         first_line = in_file.readline()
