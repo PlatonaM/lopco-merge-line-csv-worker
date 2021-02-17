@@ -36,6 +36,8 @@ with open("{}/{}".format(data_cache_path, input_file), "r") as in_file:
         out_file.write(first_line)
         first_line = first_line.strip().split(delimiter)
         time_col_num = first_line.index(time_column)
+        line_len = len(first_line)
+        line_range = range(line_len)
         current_timestamp = None
         line_count = 1
         for line in in_file:
@@ -47,10 +49,10 @@ with open("{}/{}".format(data_cache_path, input_file), "r") as in_file:
                     line_count += 1
                 except NameError:
                     pass
-                merge_line = [str()] * len(first_line)
+                merge_line = [str()] * line_len
                 merge_line[time_col_num] = line[time_col_num]
                 current_timestamp = line[time_col_num]
-            for pos in range(len(line)):
+            for pos in line_range:
                 if line[pos] and pos != time_col_num:
                     merge_line[pos] = line[pos]
         out_file.write(delimiter.join(merge_line) + "\n")
