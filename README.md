@@ -1,4 +1,26 @@
-#### Description
+## lopco-merge-line-csv-worker
+
+Merge the rows of a CSV file based on the contained timestamps. The CSV file must have been sorted beforehand.
+
+### Configuration
+
+`delimiter`: Delimiter used in the CSV file.
+
+`time_column`: Name of column containing timestamps.
+
+### Inputs
+
+Type: single
+
+`input_csv`: CSV file to sort.
+
+### Outputs
+
+Type: single
+
+`output_csv`: Sorted CSV file.
+
+### Description
 
     {
         "name": "Merge Line CSV",
